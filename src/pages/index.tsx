@@ -38,7 +38,7 @@ export default function Home() {
                     className="w-full h-full bg-cover"
                 />
             </div>
-            <div className=" w-96 h-full gap-8 line-center flex-col">
+            <div className=" w-full p-4 overflow-y-auto sm:w-96 h-full gap-8 line-center flex-col">
                 <div className="line-left w-full">
                     <div className="w-32 h-8">
                         <img
@@ -50,7 +50,7 @@ export default function Home() {
                 </div>
                 <form
                     onSubmit={(e: any) => handleLogin(e)}
-                    className="w-96   bg-neutral-50 rounded-md z-10 shadow-xl p-12 shadow-neutral-950/50 drop-shadow-xl"
+                    className="w-full sm:w-96 bg-neutral-50 rounded-md z-10 shadow-xl p-4 sm:p-12 shadow-neutral-950/50 drop-shadow-xl"
                 >
                     <div className="line-center flex-wrap gap-8">
                         <div className=" w-full text-neutral-950 font-bold text-2xl">

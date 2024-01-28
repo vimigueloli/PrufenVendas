@@ -33,7 +33,7 @@ export default function Register() {
         <div className="w-full line-center h-screen ">
             <div
                 style={{ backgroundImage: `url(${cover.src})` }}
-                className="bg-neutral-50 line-left items-start p-12 line-center bg-cover bg-bottom w-1/2 h-screen overflow-hidden"
+                className="bg-neutral-50 hidden md:flex  line-left items-start p-12 line-center bg-cover bg-bottom w-1/2 h-screen overflow-hidden"
             >
                 <div className="line-left gap-4 items-start flex-wrap">
                     <div className="w-full">
@@ -51,12 +51,12 @@ export default function Register() {
                     </div>
                 </div>
             </div>
-            <div className="w-1/2 line-center bg-neutral-50 h-screen">
+            <div className="w-full md:w-1/2 line-center bg-neutral-50 h-screen">
                 <form
                     onSubmit={(e: any) => sendRegister(e)}
-                    className="w-2/3 line-center flex-wrap gap-4"
+                    className=" w-full p-4 md:w-2/3 line-center flex-wrap gap-4"
                 >
-                    <div className=" w-full text-neutral-950 font-bold text-2xl">
+                    <div className=" w-full text-center md:text-left text-neutral-950 font-bold text-2xl">
                         Crie sua conta
                     </div>
                     <div className="w-full">
@@ -89,15 +89,17 @@ export default function Register() {
                             required
                         />
                     </div>
-                    <div className="line-left w-full gap-2 text-xs font-semibold items-start text-neutral-950">
-                        <Checkbox
-                            required={true}
-                            check={agree}
-                            setCheck={setAgree}
-                        />{" "}
+                    <div className=" w-full line-left gap-2 text-xs font-semibold md:items-start text-neutral-950">
+                        <a>
+                            <Checkbox
+                                required={true}
+                                check={agree}
+                                setCheck={setAgree}
+                            />
+                        </a>
                         Concordo em receber atualizações por e-mail
                     </div>
-                    <div className="text-neutral-950 text-xs font-semibold w-full">
+                    <div className=" text-justify text-neutral-950 text-xs font-semibold w-full">
                         Ao criar sua conta, você confirma que leu e concorda com
                         os{" "}
                         <a
@@ -110,14 +112,14 @@ export default function Register() {
                         da Prufen
                     </div>
                     <AsyncButton text="Criar conta grátis" loading={loading} />
-                    <div className="line-center w-full text-neutral-950 gap-1 text-sm">
-                        <div>Já tem uma conta?</div>
-                        <div
+                    <div className=" text-center w-full text-neutral-950 gap-1 text-sm">
+                        Já tem uma conta?
+                        <a
                             onClick={() => router.back()}
                             className="text-secundary-500 cursor-pointer border-b border-primary-300/0 hover:border-secundary-500 with-transition"
                         >
                             Acessar minha conta
-                        </div>
+                        </a>
                     </div>
                     <div className="line-center w-full text-xs gap-2 text-neutral-900">
                         <div className="opacity-50">Powered by</div>

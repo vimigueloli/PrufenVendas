@@ -10,7 +10,7 @@ export default function Home() {
                     style={{ backgroundImage: `url(${banner.src})` }}
                     className="w-full bg-cover bg-center h-56 rounded-3xl line-left p-8"
                 >
-                    <div className="text-neutrel-50  text-5xl text-bold">
+                    <div className="text-neutrel-50 text-3xl md:text-5xl text-bold">
                         Transforme sua <br /> paixão em
                         <a className="text-primary-300"> lucro!</a>
                     </div>
