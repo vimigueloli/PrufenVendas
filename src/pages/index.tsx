@@ -1,9 +1,34 @@
+import React, { FormEvent, useState } from "react";
 import background from "@/../../public/background.png";
 import logo from "@/../../public/logo.png";
 import logotipo from "@/../../public/Logotipo.png";
+import AsyncButton from "@/components/AsyncButton";
+import Checkbox from "@/components/Checkbox";
 import Input from "@/components/Input";
+import Router from "next/router";
+import toast from "react-hot-toast";
 
 export default function Home() {
+    const router = Router;
+    const [loading, setLoading] = useState<boolean>(false);
+    const [persist, setPersist] = useState<boolean>(false);
+
+    async function handleLogin(e: FormEvent) {
+        e.preventDefault();
+        // todo // integrar api futuramente com o codigo comentado abaixo
+        try {
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+                toast.success("Login efetuado com sucesso!");
+                router.push("erp/home");
+            }, 2000);
+        } catch (e: any) {
+            toast.error(e.message);
+            setLoading(false);
+        }
+    }
+
     return (
         <div className="w-full h-screen line-center  relative">
             <div className="bg-primary-300 w-full h-full absolute  -z-10">
@@ -23,7 +48,10 @@ export default function Home() {
                         />
                     </div>
                 </div>
-                <form className="w-96 h-96  bg-neutral-50 rounded-md z-10 shadow-xl p-12 shadow-neutral-950/50 drop-shadow-xl">
+                <form
+                    onSubmit={(e: any) => handleLogin(e)}
+                    className="w-96   bg-neutral-50 rounded-md z-10 shadow-xl p-12 shadow-neutral-950/50 drop-shadow-xl"
+                >
                     <div className="line-center flex-wrap gap-8">
                         <div className=" w-full text-neutral-950 font-bold text-2xl">
                             Acessar conta
@@ -48,6 +76,15 @@ export default function Home() {
                                 required
                             />
                         </div>
+                        <div className="line-left w-full gap-2 text-xs font-semibold items-start text-neutral-950">
+                            <Checkbox
+                                required={true}
+                                check={persist}
+                                setCheck={setPersist}
+                            />{" "}
+                            Permanecer conectado
+                        </div>
+                        <AsyncButton loading={loading} text="Acessar conta" />
                     </div>
                 </form>
                 <div className="line-left gap-1 text-sm">

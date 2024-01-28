@@ -15,14 +15,25 @@ export default function Register() {
 
     async function sendRegister(e: FormEvent) {
         e.preventDefault();
-        setLoading(!loading);
+        // todo // integrar api futuramente com o codigo comentado abaixo
+        try {
+            setLoading(true);
+            setTimeout(() => {
+                setLoading(false);
+                toast.success("Conta criada com sucesso!");
+                router.push("/");
+            }, 2000);
+        } catch (e: any) {
+            toast.error(e.message);
+            setLoading(false);
+        }
     }
 
     return (
         <div className="w-full line-center h-screen ">
             <div
                 style={{ backgroundImage: `url(${cover.src})` }}
-                className="bg-neutral-50 line-left items-start p-12 line-center bg-cover bg-center w-1/2 h-screen overflow-hidden"
+                className="bg-neutral-50 line-left items-start p-12 line-center bg-cover bg-bottom w-1/2 h-screen overflow-hidden"
             >
                 <div className="line-left gap-4 items-start flex-wrap">
                     <div className="w-full">
