@@ -1,0 +1,69 @@
+import background from "@/../../public/background.png";
+import logo from "@/../../public/logo.png";
+import logotipo from "@/../../public/Logotipo.png";
+import Input from "@/components/Input";
+
+export default function Home() {
+    return (
+        <div className="w-full h-screen line-center  relative">
+            <div className="bg-primary-300 w-full h-full absolute  -z-10">
+                <img
+                    src={background.src}
+                    alt="fundo personalizado prufen"
+                    className="w-full h-full bg-cover"
+                />
+            </div>
+            <div className=" w-96 h-full gap-8 line-center flex-col">
+                <div className="line-left w-full">
+                    <div className="w-32 h-8">
+                        <img
+                            src={logo.src}
+                            alt="logo prufen"
+                            className="h-full w-fuçll bg-cover"
+                        />
+                    </div>
+                </div>
+                <form className="w-96 h-96  bg-neutral-50 rounded-md z-10 shadow-xl p-12 shadow-neutral-950/50 drop-shadow-xl">
+                    <div className="line-center flex-wrap gap-8">
+                        <div className=" w-full text-neutral-950 font-bold text-2xl">
+                            Acessar conta
+                        </div>
+                        <div className="w-full">
+                            <div className="text-neutral-950 font-bold mb-2 text-xs">
+                                E-mail
+                            </div>
+                            <Input
+                                type="email"
+                                placeholder="Digite seu e-mail"
+                                required
+                            />
+                        </div>
+                        <div className="w-full">
+                            <div className="text-neutral-950 font-bold mb-2 text-xs">
+                                Senha
+                            </div>
+                            <Input
+                                type="password"
+                                placeholder="Digite sua senha"
+                                required
+                            />
+                        </div>
+                    </div>
+                </form>
+                <div className="line-left gap-1 text-sm">
+                    <div>Não tem conta?</div>
+                    <a
+                        href="register"
+                        className="text-primary-300 cursor-pointer border-b border-primary-300/0 hover:border-primary-300 with-transition"
+                    >
+                        Cadastrar-me
+                    </a>
+                </div>
+                <div className="line-center text-xs gap-2">
+                    <div className="opacity-50">Powered by</div>
+                    <img src={logotipo.src} alt="prufen logo" />
+                </div>
+            </div>
+        </div>
+    );
+}
