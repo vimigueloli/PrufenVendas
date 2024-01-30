@@ -38,7 +38,7 @@ export default function Home() {
                     className="w-full h-full bg-cover"
                 />
             </div>
-            <div className=" w-full p-4 overflow-y-auto sm:w-96 h-full gap-8 line-center flex-col">
+            <div className=" w-full p-4 overflow-y-auto sm:w-96 overflow-x-hidden h-full gap-8 line-center flex-col">
                 <div className="line-left w-full">
                     <div className="w-32 h-8">
                         <img
